@@ -1,11 +1,11 @@
-import java.util.HashMap;
-import java.util.Iterator;
-public class Set<E> implements Iterable<E> {
+import java.util.*;
+
+public class set<E> implements Iterable<E> ,Set<E> {
     private HashMap<E, Object> map;
 
     private Object Value= new Object();
 
-    public Set() {
+    public set() {
         this.map = new HashMap<>();
     }
 
@@ -16,6 +16,7 @@ public class Set<E> implements Iterable<E> {
     public boolean remove(Object o) {
         return map.remove(o) != null;
     }
+
 
     public int size() {
         return map.size();
@@ -29,11 +30,21 @@ public class Set<E> implements Iterable<E> {
         return map.keySet().iterator();
     }
 
+    @Override
+    public Object[] toArray() {
+        return new Object[0];
+    }
+
+    @Override
+    public <T> T[] toArray(T[] a) {
+        return null;
+    }
+
     public boolean isEmpty() {
         return map.isEmpty();
     }
 
-    public boolean addAll(Set<? extends E> c) {
+    public boolean addAll(Collection<? extends E> c) {
         boolean modified = false;
         for (E e : c) {
             if (add(e)) {
@@ -43,7 +54,7 @@ public class Set<E> implements Iterable<E> {
         return modified;
     }
 
-    public boolean removeAll(Set<?> c) {
+    public boolean removeAll(Collection<?> c) {
         boolean modified = false;
         for (Object o : c) {
             if (remove(o)) {
@@ -53,7 +64,7 @@ public class Set<E> implements Iterable<E> {
         return modified;
     }
 
-    public boolean containsAll(Set<?> c) {
+    public boolean containsAll(Collection<?> c) {
         for (Object o : c) {
             if (!contains(o)) {
                 return false;
@@ -62,7 +73,7 @@ public class Set<E> implements Iterable<E> {
         return true;
     }
 
-    public boolean retainAll(Set<?> c){
+    public boolean retainAll(Collection<?> c){
         boolean modified = false;
         Iterator<E> iterator = iterator();
         while (iterator.hasNext()) {
@@ -75,7 +86,13 @@ public class Set<E> implements Iterable<E> {
         return modified;
     }
 
+
     public void clear(){
         map.clear();
+    }
+
+    @Override
+    public Spliterator<E> spliterator() {
+        return Set.super.spliterator();
     }
 }

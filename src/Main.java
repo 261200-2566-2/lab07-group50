@@ -6,9 +6,9 @@ public class Main {
 
     class lab_07{
         public static void hooo() {
-            Set<String> set01 = new Set<>();
-            Set<String> set02 = new Set<>();
-            Set<String> set03 = new Set<>();
+            set<String> set01 = new set<>();
+            set<String> set02 = new set<>();
+            set<String> set03 = new set<>();
             set01.add("Java");
             set01.add("Python");
             set01.add("C++");
@@ -45,11 +45,10 @@ public class Main {
             System.out.print("set01 clear");
             printset(set01);
             System.out.println(set01.isEmpty());
-            printset(set02);
-
+            System.out.println();
         }
 
-        private static void printset(Set<String> set){
+        private static void printset(set<String> set){
             for (String element : set) {
                 System.out.print(element + " ");
             }
