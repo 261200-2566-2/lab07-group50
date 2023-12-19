@@ -1,4 +1,8 @@
-import java.util.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.Spliterator;
+import java.util.Collection;
 
 public class set<E> implements Iterable<E> ,Set<E> {
     private HashMap<E, Object> map;
@@ -16,7 +20,6 @@ public class set<E> implements Iterable<E> ,Set<E> {
     public boolean remove(Object o) {
         return map.remove(o) != null;
     }
-
 
     public int size() {
         return map.size();
