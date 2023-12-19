@@ -1,17 +1,62 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.print("Hello and welcome!");
+        lab_07.hooo();
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+    }
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+    class lab_07{
+        public static void hooo() {
+            set<String> set01 = new set<>();
+            set<String> set02 = new set<>();
+            set<String> set03 = new set<>();
+            set01.add("Java");
+            set01.add("Python");
+            set01.add("C++");
+
+            set02.add("C#");
+            set02.add("JavaScript");
+
+            set03.add("C#");
+            set03.add("Java");
+
+            System.out.println("Set01 size: " + set01.size());
+            System.out.println("Set01 contains Java: " + set01.contains("Java"));
+            System.out.println("Set01 contains C#: " + set01.contains("C#"));
+
+            System.out.print("Set01 elements ");
+            printset(set01);
+
+            System.out.print("Set02 elements ");
+            printset(set02);
+
+            System.out.print("Set03 elements ");
+            printset(set03);
+
+            set01.addAll(set02);
+            System.out.print("Set01 elements after addAll Set02: ");
+            printset(set01);
+
+            set01.retainAll(set03);
+            System.out.print("Set01 elements after addAll and retainAll Set03: ");
+            printset(set01);
+
+            System.out.println(set01.containsAll(set03));
+            set01.clear();
+            System.out.print("set01 clear");
+            printset(set01);
+            System.out.println(set01.isEmpty());
+            System.out.println();
+        }
+
+        private static void printset(set<String> set){
+            for (String element : set) {
+                System.out.print(element + " ");
+            }
+            System.out.println();
         }
     }
+
+
+
+
 }
